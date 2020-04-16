@@ -34,7 +34,8 @@ app.get('/about', (req, res) => {
 app.get('/help', (req, res) => {
     res.render('help', {
         message: 'This is of no help.',
-        title: 'Help'        
+        title: 'Help',
+        name : "Manu"        
     })
 })
 

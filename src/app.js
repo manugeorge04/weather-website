@@ -1,41 +1,50 @@
 const path = require('path')
 const express = require('express')
-
-console.log(__dirname)
+const hbs = require('hbs')
 
 const app = express()
-const indexfile = path.join(__dirname, '../public')
 
-app.use(express.static(indexfile))
+// Define paths for Express config
+const publicDirectoryPath = path.join(__dirname, '../public')
+const viewsPath = path.join(__dirname, '../templates/views')
+const partialsPath = path.join(__dirname, '../templates/partials')
 
-app.get('', (req,res) =>{                               //'' has nothing for the root page that is, app.com
-    res.send('<h1>Weather<h1>')
+// Setup handlebars engine and views location
+app.set('view engine', 'hbs')
+app.set('views', viewsPath)
+hbs.registerPartials(partialsPath)
+
+// Setup static directory to serve
+app.use(express.static(publicDirectoryPath))
+
+app.get('', (req, res) => {
+    res.render('index', {
+        title: 'Weather',
+        name: 'Manu'
+    })
 })
 
-app.get('/help', (req, res) => {                          
-    res.send([{
-        name : 'Manu'
-    }, {
-        name : 'Jenu'
-    }])
+app.get('/about', (req, res) => {
+    res.render('about', {
+        title: 'About',
+        name: 'Manu'
+    })
 })
 
-app.get('/about', (req,res) =>{
-    res.send('<h2>About Page<h2>')
+app.get('/help', (req, res) => {
+    res.render('help', {
+        message: 'This is of no help.',
+        title: 'Help'        
+    })
 })
 
-app.get('/weather', (req,res) =>{
-    res.send([
-        {
-            Forecast : 'Hot'
-        },
-        {
-            Location : 'Bangalore'
-        }
-    ])
+app.get('/weather', (req, res) => {
+    res.send({
+        forecast: 'It is snowing',
+        location: 'Philadelphia'
+    })
 })
 
-app.listen(3000,() => {                               //port number 3000 is usually used for development callback is optional
-    console.log("Server is up on port 3000!")
+app.listen(3000, () => {
+    console.log('Server is up on port 3000.')
 })
-

@@ -9,8 +9,10 @@
 
 
     <body>
-        <h1> About </h1>
-        <img src="/img/robot.png">
+        {{>header}}   <!-- greater than symbol for partials-->
+
+        <h1> {{title}} </h1>
+        <p> {{message}} </p>
     </body>
 
 </html>

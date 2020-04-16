@@ -46,6 +46,21 @@ app.get('/weather', (req, res) => {
     })
 })
 
+app.get('/help/*', (req, res) =>{
+    res.render('error', {
+        errorMessage: 'Help article not found',
+        title: 'Error 404',
+        name : "Manu"        
+    })
+})
+app.get('*', (req, res) =>{                          //we use a wild card * so it HAS TO COME IN THE END as express check for one by one till it finds a match
+    res.render('error', {
+        errorMessage: 'Page not found',
+        title: 'Error 404',
+        name : "Manu"        
+    })
+})
+
 app.listen(3000, () => {
     console.log('Server is up on port 3000.')
 })

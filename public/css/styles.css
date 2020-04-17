@@ -1,7 +1,43 @@
-h1 {
-    color: grey;
+body {
+    color: #333333;     /* set font color */
+    font-family: arial;   /* set font type */
+    max-width: 650px;     /* set width of body */
+    margin: 0 auto;       /* margin value for top and bottom ;  margin value for left and right */
+    padding: 0 16px;      /* not apdding on top and down ;  pad left and right */
+
+    display: flex;
+    flex-direction: column;  /* default is "row" ie left to right */
+    min-height: 100vh       
 }
 
-img{    
-    width: 250px;    
+.main-content {
+    flex-grow: 1;
+}
+
+footer {
+    color: #888888;
+    border-top: 1px solid #eeeeee;
+    margin-top: 16px;
+    padding: 16px 0;
+}
+
+header {
+    margin-top: 16px;
+    margin-bottom: 48px;
+}
+
+h1 {
+    font-size: 64px;
+    margin-bottom: 16px;
+}
+
+header a {                                /* links inside the header */
+    color: #888888; 
+    margin-right: 16px;
+    text-decoration: none;               /* no underline on the links */
+}
+
+.portrait {
+    width: 250px;  /* to set a style only to a particular class */
+                         
 }

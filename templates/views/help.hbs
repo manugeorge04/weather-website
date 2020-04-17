@@ -2,16 +2,23 @@
 
 <html>
 
-    <head>
+    <head> 
+        <title>{{title}}</title>
+        <link rel="icon" href="/img/weather.png" >
         <link rel="stylesheet" href="/css/styles.css" >
     </head>
 
 
 
     <body>
-        {{>header}}   <!-- greater than symbol for partials-->
+
+       <div class="main-content">
+            {{>header}}   <!-- greater than symbol for partials-->
 
         <p> {{message}} </p>
+        </div>
+
+        
 
         {{>footer}}
     </body>

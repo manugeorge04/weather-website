@@ -41,3 +41,16 @@ header a {                                /* links inside the header */
     width: 250px;  /* to set a style only to a particular class */
                          
 }
+
+input {
+    border: 1px solid #cccccc;
+    padding: 8px;
+}
+
+button{
+    cursor: pointer;
+    border: 1px solid #888888;
+    background-color: #888888;
+    color: white;
+    padding: 8px;
+}

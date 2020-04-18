@@ -9,8 +9,24 @@ const forecast = (latitude, longitude, callback) =>{
             callback("Network error",undefined)
         }else if (body.error){
             callback(body.error.type+". "+body.error.info,undefined)
-        }else    
-        callback(undefined, body.current.weather_descriptions[0]+" It is currently "+body.current.temperature+" degrees out. It feels like "+body.current.feelslike+" degrees out.")
+        }else   {
+
+            callback(undefined, {
+                weather_descriptions : body.current.weather_descriptions[0],
+                temperature : body.current.temperature,
+                feels_like: body.current.feelslike,
+                humidity: body.current.humidity,
+                weather_icon: body.current.weather_icons[0]
+            })
+                
+                
+            //     [body.current.weather_descriptions[0]+" It is currently "+body.current.temperature+" degrees out. It feels like "+body.current.feelslike+" degrees out.",
+            //     "Humidity is at "+body.current.humidity,
+            //     body.current.weather_icons
+            // )
+
+        } 
+        
     
     })
 }

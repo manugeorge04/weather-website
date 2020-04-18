@@ -54,3 +54,17 @@ button{
     color: white;
     padding: 8px;
 }
+
+.container{
+    display: flex;
+}
+
+.text_box{
+    flex-grow: 3;
+}
+
+.image_box{
+    flex-grow: 1;
+    width: 100px;
+
+}

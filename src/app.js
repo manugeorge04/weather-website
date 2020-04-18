@@ -59,6 +59,7 @@ app.get('/weather', (req, res) => {
             if (error){
                 return res.send({error:error})
             }
+            console.log(forecastData.weather_icon)
             res.send({
                 forecast: forecastData,
                 location: location,
